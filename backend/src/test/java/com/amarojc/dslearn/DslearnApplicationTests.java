@@ -1,10 +1,10 @@
-package com.amarojc.dslearnbds;
+package com.amarojc.dslearn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DslearnbdsApplicationTests {
+class DslearnApplicationTests {
 
 	@Test
 	void contextLoads() {
