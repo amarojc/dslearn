@@ -155,4 +155,19 @@ public class User implements UserDetails, Serializable{
 	public boolean isEnabled() {
 		return true;
 	}
+	
+	/**
+	 * Método para verificar se um dos perfis do usuário autenticado 
+	 * é igual ao tipo de perfil informado.
+	 * @param roleName
+	 * @return
+	 */
+	public boolean hasHole(String roleName) {
+		for(Role role : roles) {
+			if(role.getAuthority().equals(roleName)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

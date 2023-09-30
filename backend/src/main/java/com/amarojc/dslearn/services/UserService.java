@@ -24,9 +24,14 @@ public class UserService implements UserDetailsService{
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private AuthService authService;
 	
 	@Transactional(readOnly = true)
 	public UserDTO findById(Long id) {
+		
+		authService.validateSelfOrAdmin(id);
+		
 		Optional<User> userOptional = userRepository.findById(id);
 		User user = userOptional.orElseThrow(
 						() -> new ObjectNotFoundException("Id não encontrado / not found " + id)
